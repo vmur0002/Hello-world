@@ -1,0 +1,62 @@
+using System;
+					
+public class Calculator
+{
+	public float distance = 10f;
+	public int days = 5;
+	public float average = 10f;
+	public float fuelPrice = 1.50f;
+	public float carCarbon = 0.285f;
+	public float bikeCarbon = 0.185f;
+	
+	public float totalFuelweek {get;set;}
+	public float carCarbonweek {get;set;}
+	
+	public void week()
+	{
+		float totalDistance = (distance*2)*days;
+		totalFuelweek = totalDistance/average;
+		Console.WriteLine("Fuel consumed in a week :"+" "+totalFuelweek+" "+"Liters");
+		float priceWeek = fuelPrice*totalFuelweek;
+		Console.WriteLine("Money spent on fuel for a week :"+" "+priceWeek+"AUD");
+		carCarbonweek = totalDistance*carCarbon;
+		Console.WriteLine("Carbon footprint by your vehicle for a Week:" +carCarbonweek+"Kg CO2e");
+	}
+	
+	public void month()
+	{
+		float totalFuelmonth = totalFuelweek*4;
+		Console.WriteLine("Fuel consumed in a month :"+" "+totalFuelmonth+" "+"Liters");
+		float priceMonth = fuelPrice*totalFuelmonth;
+		Console.WriteLine("Money spent on fuel for a Month :"+" "+priceMonth+"AUD");
+		float carCarbonmonth = carCarbonweek*4;
+		Console.WriteLine("Carbon footprint by your vehicle for a Month:" +carCarbonmonth+"Kg CO2e");
+
+	}
+	
+	public void year()
+	{
+		float totalFuelyear = totalFuelweek*52;
+		Console.WriteLine("Fuel consumed in a year :"+" "+totalFuelyear+" "+"Liters");
+		float priceYear = fuelPrice*totalFuelyear;
+		Console.WriteLine("Money spent on fuel for a Year :"+" "+priceYear+"AUD");
+		float carCarbonyear = carCarbonweek*52;
+		Console.WriteLine("Carbon footprint by your vehicle for a Year:" +carCarbonyear+"Kg CO2e");
+	}
+	public static void Main()
+	{
+		var instance = new Calculator();
+		Console.WriteLine("For a Week");
+		Console.WriteLine("====================");
+		instance.week();	
+		Console.WriteLine("For a Week");
+		Console.WriteLine("====================");
+		instance.week();
+		Console.WriteLine("For a month");
+		Console.WriteLine("====================");
+		instance.month();
+		Console.WriteLine("For a Year");
+		Console.WriteLine("====================");
+		instance.year();
+	}
+}
